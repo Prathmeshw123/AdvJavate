@@ -45,6 +45,6 @@ STEPS:
 9. new - html file - name html file - next - select html 5 - finish - type html code - save it.
 10. again right click on src file and create new jsp file for jsp code 
        And save it
-11. Right click on project name
+11. Right click on project name in project explorer menu
 12. Run as - run on server
 */
