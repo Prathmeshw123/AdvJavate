@@ -1,0 +1,40 @@
+JAVA CODE:
+
+import java.awt.*;
+import java.applet.Applet;
+import java.awt.event.*;
+/*
+<applet code="keyevex.class" width=300 height=300>
+</applet>
+*/
+public class keyevex extends Applet implements KeyListener{
+	String msg;
+	public void init(){
+		addKeyListener(this);
+	}
+	public void paint (Graphics g){
+		g.drawString(msg,50,60);
+	}
+	public void keyPressed(KeyEvent e){
+		msg = "Key Pressed";
+		showStatus("Key Pressed");
+		repaint();
+	}
+	public void keyTyped(KeyEvent e){
+		msg = "Key Typed";
+		showStatus("Key Typed");
+		repaint();
+	}
+	public void keyReleased(KeyEvent e){
+		msg +=e.getKeyChar();
+		showStatus("Key Released");
+		repaint();
+	}
+}
+
+
+CMD PROMPT:
+
+javac keyevex.java
+
+appletviewer keyevex.java
