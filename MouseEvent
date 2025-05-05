@@ -1,0 +1,52 @@
+JAVA CODE:
+import java.awt.*;
+import java.awt.event.*;
+public class MouseEventExample extends Frame implements MouseListener
+{
+	String s="";
+	public MouseEventExample()
+	{
+	addMouseListener(this);
+	setSize(500,600);
+	setVisible(true);
+	}
+	public void mouseClicked(MouseEvent m)
+	{ 
+		s="Mouse Clicked";
+		repaint();
+	}
+	public void mousePressed(MouseEvent m)
+	{
+		s="Mouse Pressed";
+		repaint();
+	}
+	public void mouseReleased(MouseEvent m)
+	{
+		s="Mouse Released";
+		repaint();
+	}
+	public void mouseEntered(MouseEvent m)
+	{
+		s="Mouse Entered";
+		repaint();
+	}
+	public void mouseExited(MouseEvent m)
+	{
+		s="Mouse Exited";
+		repaint();
+	}
+	public void paint(Graphics g)
+	{
+		g.drawString(s,60,80);
+	}
+	public static void main(String[] args)
+	{
+		new MouseEventExample();
+	}
+
+}
+
+CMD Prompt:
+javac MouseEventExample.java
+
+java MouseEventExample
