@@ -1,0 +1,44 @@
+package EXP4;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+public class select 
+
+{
+	public static void main(String[] args) 
+	{
+	// TODO Auto-generated method stub
+		try {
+	    Class.forName("com.mysql.cj.jdbc.Driver");
+
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/student","root","");
+	
+			Statement stmt=con.createStatement();
+
+			ResultSet rs=stmt.executeQuery("select * from information");
+
+			while(rs.next())
+
+			{
+
+				String name=rs.getString("name");
+				String rollno=rs.getString("rollno");
+				String email=rs.getString("email");
+				String address=rs.getString("address");
+				System.out.println(name+" "+rollno+" "+email+" "+address);
+		}	
+			con.close();
+	}
+	catch(Exception e)
+	{
+		System.out.println(e);
+	}
+
+
+
+}
+
+
+
+}
