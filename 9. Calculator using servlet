@@ -1,0 +1,63 @@
+Index.html Code:
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="Calculator9" method="post">
+Enter 1st number:<input type="text" name="t1"> <br>
+Enter 2nd number:<input type="text" name="t2"> <br>
+<input type="radio" name="op" value="+">+
+<input type="radio" name="op" value="-">-
+<input type="radio" name="op" value="*">*
+<input type="radio" name="op" value="/">/
+<input type="submit">
+</form>
+</body>
+</html>
+
+
+
+
+JavaResouce Code:
+
+
+
+
+package Expt9_f;
+import java.io.IOException;
+import java.io.PrintWriter;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.annotation.WebServlet;
+@WebServlet("/Calculator9")
+public class Calculator9 extends HttpServlet
+{
+@Override
+protected void service(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException
+{
+response.setContentType("text/html;charset=ISO-8859-1");
+try(PrintWriter out=response.getWriter())
+{
+	double number1=Double.parseDouble(request.getParameter("t1"));
+	double number2=Double.parseDouble(request.getParameter("t2"));
+	String str=request.getParameter("op");
+	double result=0;
+	if(str.equals("+"))
+		result=number1+number2;
+	else if(str.equals("-"))
+		result=number1-number2;
+	else if(str.equals("*"))
+		result=number1*number2;
+	else if(str.equals("/"))
+		result=number1/number2;
+	out.println(result);	
+}
+}
+}
